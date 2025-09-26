@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スライド生成完了 - 議事録スライド作成エージェント</title>
+  <style>
+    body {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 30px;
+    }
+    .success-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+    .message {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .download-info {
+      background-color: #e8f5e8;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border-left: 4px solid #4CAF50;
+    }
+    .filename {
+      font-family: monospace;
+      background-color: #f0f0f0;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .btn-primary {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #45a049;
+    }
+    .btn-secondary {
+      background-color: #2196F3;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #1976D2;
+    }
+    .features {
+      text-align: left;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    .features h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .features ul {
+      color: #666;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon">✅</div>
+    <h1>PowerPoint スライド生成完了！</h1>
+    
+    <div class="message">
+      議事録の解析が完了し、PowerPoint スライドが正常に生成されました。<br>
+      ダウンロードが自動で開始されます。
+    </div>
+
+    <div class="download-info">
+      <strong>📁 ファイル名:</strong> <span class="filename">{{ filename }}</span><br>
+      <strong>📊 スライド数:</strong> {{ slide_count }} 枚<br>
+      <strong>🤖 解析内容:</strong> {{ analysis_summary }}
+    </div>
+
+    <div class="buttons">
+      <a href="/" class="btn btn-primary">🔄 新しい議事録を作成</a>
+      <a href="/download/{{ filename }}" class="btn btn-secondary">📥 再ダウンロード</a>
+    </div>
+
+    <div class="features">
+      <h3>🎯 生成されたスライドの内容</h3>
+      <ul>
+        <li>📋 アジェンダ・概要</li>
+        <li>💼 BANT情報（予算・決裁・ニーズ・時期）</li>
+        <li>🎯 課題とニーズの整理</li>
+        <li>📝 セクション別の詳細内容</li>
+        <li>🚀 ネクストアクション</li>
+        <li>📊 まとめ・総括</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // ページ読み込み時にダウンロードを開始
+    window.onload = function() {
+      // 少し遅延してからダウンロードリンクをクリック
+      setTimeout(function() {
+        const downloadLink = document.querySelector('.btn-secondary');
+        if (downloadLink) {
+          downloadLink.click();
+        }
+      }, 1000);
+    };
+  </script>
+</body>
+</html>
