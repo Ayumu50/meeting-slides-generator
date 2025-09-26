@@ -177,11 +177,17 @@ def create_meeting_summary_ppt(parsed: dict) -> io.BytesIO:
     - 左揃えの徹底、行間・余白の調整
     """
     template_path = os.path.join(os.path.dirname(__file__), "image", "tempppt.pptx")
-    if os.path.exists(template_path):
-        prs = Presentation(template_path)
-        print("[INFO] Use template:", template_path)
-    else:
+    try:
+        if os.path.exists(template_path):
+            prs = Presentation(template_path)
+            print("[INFO] Using template:", template_path)
+        else:
+            prs = Presentation()
+            print("[WARNING] Template not found, using default presentation")
+    except Exception as e:
+        print(f"[ERROR] Failed to load template: {e}")
         prs = Presentation()
+        print("[INFO] Using default presentation as fallback")
 
     def get_layout(index_fallback=1):
         try:
