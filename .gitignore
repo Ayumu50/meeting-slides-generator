@@ -19,16 +19,17 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Virtual Environment
-venv/
-env/
-ENV/
-
-# Environment variables
+# Virtual environments
 .env
-.env.local
-.env.production
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+myvenv/
 
 # IDE
 .vscode/
@@ -38,14 +39,26 @@ ENV/
 
 # OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# Application specific
+temp_files/
+*.pptx
+credentials.json
 
 # Logs
 *.log
 
-# Google credentials (keep private)
-genpptx/credentials.json
-genpptx/token.json
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
 
-# Heroku
-.heroku/
+# Flask
+instance/
+.webassets-cache
