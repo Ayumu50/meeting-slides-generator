@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エラー - 議事録 Google Slides 作成</title>
+  <style>
+    body {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .error-header {
+      text-align: center;
+      color: #d32f2f;
+      margin-bottom: 30px;
+    }
+    .error-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .error-message {
+      background-color: #ffebee;
+      border: 1px solid #ffcdd2;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .error-title {
+      font-weight: bold;
+      color: #c62828;
+      margin-bottom: 10px;
+    }
+    .solution {
+      background-color: #e8f5e8;
+      border: 1px solid #c8e6c9;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .solution-title {
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+    .back-button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .back-button:hover {
+      background-color: #45a049;
+    }
+    .setup-link {
+      display: inline-block;
+      background-color: #2196F3;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+    .setup-link:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="error-header">
+      <div class="error-icon">⚠️</div>
+      <h1>エラーが発生しました</h1>
+    </div>
+    
+    <div class="error-message">
+      <div class="error-title">エラー内容:</div>
+      {{ error }}
+    </div>
+    
+    <div class="solution">
+      <div class="solution-title">💡 解決方法:</div>
+      {{ solution }}
+    </div>
+    
+    <div style="text-align: center;">
+      <a href="/" class="back-button">🏠 ホームに戻る</a>
+      <a href="/static/oauth-setup-guide.html" class="setup-link" target="_blank">📖 設定ガイド</a>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 20px; background-color: #f9f9f9; border-radius: 5px;">
+      <h3>🔧 Google OAuth 設定チェックリスト:</h3>
+      <ul>
+        <li>✅ Google Cloud Console でプロジェクトを作成</li>
+        <li>✅ Google Slides API と Google Drive API を有効化</li>
+        <li>✅ OAuth 同意画面を設定</li>
+        <li>✅ テストユーザーにあなたのGmailアドレスを追加</li>
+        <li>✅ OAuth 2.0 クライアント ID を作成</li>
+        <li>✅ リダイレクト URI: <code>http://localhost:5000/oauth/callback</code></li>
+        <li>✅ credentials.json ファイルを配置</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

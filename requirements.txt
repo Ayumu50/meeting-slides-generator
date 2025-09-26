@@ -1,0 +1,5 @@
+Flask==2.3.3
+python-pptx==0.6.21
+openai==1.109.1
+python-dotenv==1.0.0
+gunicorn==21.2.0
